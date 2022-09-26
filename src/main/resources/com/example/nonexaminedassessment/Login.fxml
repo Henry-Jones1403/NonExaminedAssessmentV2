@@ -5,8 +5,8 @@
 
 <AnchorPane prefHeight="275.0" prefWidth="352.0" style="-fx-background-color: #348f94;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.nonexaminedassessment.LogInController">
    <children>
-      <TextField id="UsernameField" onAction="#Login" layoutX="102.0" layoutY="68.0" promptText="Username/Email" style="-fx-background-color: #f7d992;" />
-      <PasswordField layoutX="102.0" layoutY="131.0" promptText="Password" style="-fx-background-color: #f7d992;" />
+      <TextField fx:id="UsernameField" onAction="#Login" layoutX="102.0" layoutY="68.0" promptText="Username/Email" style="-fx-background-color: #f7d992;" />
+      <PasswordField fx:id="PasswordField" layoutX="102.0" layoutY="131.0" promptText="Password" style="-fx-background-color: #f7d992;" />
       <Button id="LoginBtn" layoutX="144.0" layoutY="193.0" mnemonicParsing="false" onAction="#Login" style="-fx-background-color: #f7d992;" text="Log in" />
    </children>
 </AnchorPane>

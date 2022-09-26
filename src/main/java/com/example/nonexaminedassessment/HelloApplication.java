@@ -21,9 +21,8 @@ public class HelloApplication extends Application{
     double y = 0;
 
     @Override
-    public void start(Stage stage) throws IOException {
-
-        SQLhandling.SQLTest();
+    public void start(Stage stage) {
+        try{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.DECORATED);
@@ -38,6 +37,8 @@ public class HelloApplication extends Application{
         }));
         stage.setScene(scene);
         stage.show();
+    }catch(Exception e){
+            System.out.println(e);}
     }
 
 

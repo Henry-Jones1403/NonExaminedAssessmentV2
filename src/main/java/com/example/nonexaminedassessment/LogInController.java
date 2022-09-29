@@ -1,5 +1,6 @@
 package com.example.nonexaminedassessment;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import com.example.nonexaminedassessment.SQLhandling;
 import javafx.stage.StageStyle;
 import javafx.stage.Stage;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -19,20 +21,31 @@ import java.sql.Statement;
 import java.util.Objects;
 
 public class LogInController {
-
-    @FXML private TextField UsernameField;
-
-    @FXML private PasswordField PasswordField;
+    double x = 0;
+    double y = 0;
 
     @FXML
-    public void Login(ActionEvent event){
-try{
-        if(SQLhandling.LoginSQL(UsernameField.getText(), PasswordField.getText())){
+    private TextField UsernameField;
+
+    @FXML
+    private PasswordField PasswordField;
+
+    @FXML
+    public void Login(ActionEvent event) {
+        try {
+            System.out.println(SQLhandling.LoginSQL(UsernameField.getText(), PasswordField.getText()));
+            if(SQLhandling.LoginSQL(UsernameField.getText(), PasswordField.getText())){
+            System.out.println();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
             Scene scene = new Scene(root);
-
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setFullScreen(true);
+            stage.setScene(scene);
+            stage.show();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
-    }catch(Exception e){
-    System.out.println(e);
     }
-}}
+}

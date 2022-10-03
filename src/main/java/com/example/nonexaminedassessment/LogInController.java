@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class LogInController {
@@ -33,7 +34,6 @@ public class LogInController {
     @FXML
     public void Login(ActionEvent event) {
         try {
-            System.out.println(SQLhandling.LoginSQL(UsernameField.getText(), PasswordField.getText()));
             if(SQLhandling.LoginSQL(UsernameField.getText(), PasswordField.getText())){
             System.out.println();
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
@@ -46,6 +46,7 @@ public class LogInController {
             }
         } catch (Exception e) {
             System.out.println(e);
+            System.out.println("hello3243");
         }
     }
 }

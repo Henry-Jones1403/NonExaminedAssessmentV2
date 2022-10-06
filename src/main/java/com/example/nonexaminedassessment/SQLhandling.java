@@ -25,7 +25,7 @@ public class SQLhandling {
         }return false;
 
 
-    }public static ArrayList search(String sql, String Column, String search_sol) {
+    }public static ArrayList print(String sql, String Column, String search_sol) {
         ArrayList <String> output = new ArrayList<>();
         String DatabaseLocation = System.getProperty("user.dir") + "\\ProjectDatabase.accdb";
         try {
@@ -33,9 +33,24 @@ public class SQLhandling {
             Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             //System.out.println(sql);
             ResultSet Rs = stmt.executeQuery(sql);
+            ResultSetMetaData rsmd = Rs.getMetaData();
+            int columnsNumber = rsmd.getColumnCount();
+            Rs.last();
+            int rows = Rs.getRow();
+            Rs.beforeFirst();
+            if(rows>1){
+                while (Rs.next()){
+                    System.out.println(Rs.getString("FirstName") + Rs.getString("LastName"));
+                }
+            }
            while (Rs.next()) {
-               if (Rs.getString(Column).equals(search_sol))
-               output.add(Rs.getString(Column));
+               for (int i = 1; i < columnsNumber; i++) {
+                   String columnValue = Rs.getString(i);
+                   output.add(columnValue);
+               }
+
+               //if (Rs.getString(Column).equals(search_sol))
+               //output.add(Rs.getString(Column));
            }con.close();
 
                // return (Rs.getString(Column));

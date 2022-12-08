@@ -1,6 +1,7 @@
 package com.example.nonexaminedassessment;
 import java.sql.*;
 import java.util.ArrayList;
+import com.example.nonexaminedassessment.UserInfo;
 
 
 public class SQLhandling {
@@ -26,7 +27,8 @@ public class SQLhandling {
 
 
     }public static ArrayList print(String sql, String Column, String search_sol) {
-        ArrayList <String> output = new ArrayList<>();
+
+        ArrayList <UserInfo> output = new ArrayList<>();
         String DatabaseLocation = System.getProperty("user.dir") + "\\ProjectDatabase.accdb";
         try {
             Connection con = DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation, "", "");
@@ -40,13 +42,13 @@ public class SQLhandling {
             Rs.beforeFirst();
             if(rows>1){
                 while (Rs.next()){
-                    System.out.println(Rs.getString("FirstName") + Rs.getString("LastName"));
+                    for (int i = 1; i < columnsNumber; i++) {
+                    UserInfo CurrentUser = new UserInfo(Rs.getInt(0), Rs.getString(1), Rs.getString(2), Rs.getString(3),Rs.getString(4), Rs.getString(5), Rs.getInt(6), Rs.getString(7));
+                    output.add(CurrentUser);
                 }
             }
            while (Rs.next()) {
-               for (int i = 1; i < columnsNumber; i++) {
-                   String columnValue = Rs.getString(i);
-                   output.add(columnValue);
+//output.add(Cur)
                }
 
                //if (Rs.getString(Column).equals(search_sol))
@@ -60,5 +62,8 @@ public class SQLhandling {
             System.out.println(e);
         }
         return output;
+    }
+    public static void decision(){
+
     }
 }

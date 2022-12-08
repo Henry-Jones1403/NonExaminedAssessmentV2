@@ -29,9 +29,10 @@ private Label FirstName;
     public void Search_Button(ActionEvent event){
     String name = "Jones";
 
-    ArrayList <String> sql = SQLhandling.print("SELECT * FROM Users WHERE FirstName = '" + SearchBar.getText() +"'", "", "");
+    ArrayList <UserInfo> sql = SQLhandling.print("SELECT * FROM Users WHERE FirstName = '" + SearchBar.getText() +"'", "", "");
+
     try{
-        UserInfo Currentuser = new UserInfo(Integer.parseInt(sql.get(0)) , sql.get(1), sql.get(2), sql.get(3), sql.get(4), sql.get(5), Integer.parseInt(sql.get(6)),  sql.get(6));
+        UserInfo Currentuser = sql.get(0);
         LastName.setVisible(true);
         FirstName.setVisible(true);
         Email.setVisible(true);

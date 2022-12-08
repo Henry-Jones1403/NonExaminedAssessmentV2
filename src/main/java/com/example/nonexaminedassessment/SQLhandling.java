@@ -2,6 +2,7 @@ package com.example.nonexaminedassessment;
 import java.sql.*;
 import java.util.ArrayList;
 import com.example.nonexaminedassessment.UserInfo;
+import com.example.nonexaminedassessment.ChoiceController.*;
 
 
 public class SQLhandling {
@@ -43,13 +44,20 @@ public class SQLhandling {
             if(rows>1){
                 while (Rs.next()){
                     for (int i = 1; i < columnsNumber; i++) {
-                    UserInfo CurrentUser = new UserInfo(Rs.getInt(0), Rs.getString(1), Rs.getString(2), Rs.getString(3),Rs.getString(4), Rs.getString(5), Rs.getInt(6), Rs.getString(7));
+                    UserInfo CurrentUser = new UserInfo(Rs.getInt(1), Rs.getString(2), Rs.getString(3), Rs.getString(4),Rs.getString(5), Rs.getString(6), Rs.getInt(7), Rs.getString(8));
                     output.add(CurrentUser);
                 }
+            } ChoiceController cc = new ChoiceController();
+                cc.decisionLauncher();
+
+            }else{
+                while (Rs.next()) {
+                    for (int i = 1; i < columnsNumber; i++) {
+                        UserInfo CurrentUser = new UserInfo(Rs.getInt(1), Rs.getString(2), Rs.getString(3), Rs.getString(4),Rs.getString(5), Rs.getString(6), Rs.getInt(7), Rs.getString(8));
+                        output.add(CurrentUser);
+                    }
             }
-           while (Rs.next()) {
-//output.add(Cur)
-               }
+
 
                //if (Rs.getString(Column).equals(search_sol))
                //output.add(Rs.getString(Column));

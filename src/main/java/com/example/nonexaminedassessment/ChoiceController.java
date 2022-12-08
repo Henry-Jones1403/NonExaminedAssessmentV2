@@ -23,7 +23,7 @@ public class ChoiceController {
     private Label Choice3;
 
 
-    public void Login(ActionEvent event) {
+    public void decisionLauncher() {
         try {
                 Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Choice.fxml")));
                 Scene scene = new Scene(root);

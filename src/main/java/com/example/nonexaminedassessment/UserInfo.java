@@ -10,16 +10,17 @@ public class UserInfo {
     int HouseNumber;
     String Street;
 
-    public UserInfo(int userID, String firstName,String LastName, String email, String phone, String postcode, int houseNumber, String street) {
+    public UserInfo(int userID, String firstName, String lastName, String email, String phone, String postcode, int houseNumber, String street) {
         UserID = userID;
         FirstName = firstName;
-        LastName = LastName;
+        LastName = lastName;
         Email = email;
         Phone = phone;
         Postcode = postcode;
         HouseNumber = houseNumber;
         Street = street;
     }
+
 
     public int getUserID() {
         return UserID;
@@ -77,6 +78,13 @@ public class UserInfo {
         Street = street;
     }
 
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String lastName) {
+        LastName = lastName;
+    }
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -91,11 +99,5 @@ public class UserInfo {
                 '}';
     }
 
-    public String getLastName() {
-        return LastName;
-    }
 
-    public void setLastName(String lastName) {
-        LastName = lastName;
-    }
 }

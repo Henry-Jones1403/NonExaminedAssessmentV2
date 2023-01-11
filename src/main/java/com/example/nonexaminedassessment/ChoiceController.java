@@ -9,12 +9,13 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ChoiceController {
 
 @FXML
-    private Label Choice1;
+    private  Label Choice1;
 
 @FXML
     private Label Choice2;
@@ -23,19 +24,13 @@ public class ChoiceController {
     private Label Choice3;
 
 
-    public void decisionLauncher() {
-        try {
-                Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Choice.fxml")));
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                stage.initStyle(StageStyle.UNDECORATED);
-                stage.setFullScreen(true);
-                stage.setScene(scene);
-                stage.show();
-
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("hello3243");
-        }
+public void outputs(ArrayList<UserInfo> options){
+    System.out.println("into the method");
+    while(options.size()>1){
+        Choice1.setVisible(true);
+        Choice1.setText("hello");
+        System.out.println("into the while");
     }
+}
+
 }

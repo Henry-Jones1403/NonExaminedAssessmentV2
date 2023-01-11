@@ -15,7 +15,7 @@ import com.example.nonexaminedassessment.SQLhandling;
 import java.io.IOException;
 import java.util.Objects;
 
-public class HelloApplication extends Application{
+public class Start extends Application{
 
     double x = 0;
     double y = 0;

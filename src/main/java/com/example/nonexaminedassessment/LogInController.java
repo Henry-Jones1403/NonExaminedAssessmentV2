@@ -36,11 +36,10 @@ public class LogInController {
         try {
             if(SQLhandling.LoginSQL(UsernameField.getText(), PasswordField.getText())){
             System.out.println();
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("hello-view.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainPage.fxml")));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.UNDECORATED);
-            stage.setFullScreen(true);
             stage.setScene(scene);
             stage.show();
             }

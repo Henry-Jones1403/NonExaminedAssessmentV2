@@ -5,11 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import com.example.nonexaminedassessment.UserInfo.*;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -34,8 +31,8 @@ public class MainController {
     private Label LastName;
     @FXML
     private Label Email;
-
-
+    @FXML
+    private DatePicker Date;
 
     @FXML
     public void Search_Button(ActionEvent event) {
@@ -52,6 +49,11 @@ public class MainController {
             System.out.println("hello3243");
         }
 
+    }
+
+    @FXML
+    public void DateSearch(ActionEvent event){
+DateBooker.Times(Date.getValue());
     }
     @FXML
     public void SearchChoice(AnchorPane SearchAnchor){

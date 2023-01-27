@@ -54,13 +54,11 @@ public class SQLhandling {
                     for (int i = 1; i < rows; i++) {
                         UserInfo CurrentUser = new UserInfo(Rs.getInt(1), Rs.getString(2), Rs.getString(3), Rs.getString(4), Rs.getString(5), Rs.getString(6), Rs.getInt(7), Rs.getString(8));
                         output.add(CurrentUser);
-                        System.out.println("reqcehd the if");
 
                     }
                 }
 
             } else {
-                System.out.println("reached the else");
                 while (Rs.next()) {
                     for (int i = 0; i < rows; i++) {
                         UserInfo CurrentUser = new UserInfo(Rs.getInt(1), Rs.getString(2), Rs.getString(3), Rs.getString(4), Rs.getString(5), Rs.getString(6), Rs.getInt(7), Rs.getString(8));

@@ -11,17 +11,21 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import com.example.nonexaminedassessment.SQLhandling;
-
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 import java.io.IOException;
 import java.util.Objects;
 
 public class Start extends Application{
+
 
     double x = 0;
     double y = 0;
 
     @Override
     public void start(Stage stage) {
+LocalDateTime now = LocalDateTime.now();
+        System.out.println(now);
         try{
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         Scene scene = new Scene(root);
